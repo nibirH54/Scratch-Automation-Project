@@ -10,28 +10,51 @@ import org.testng.annotations.Test;
 public class GoogleSearchTest {
 
 
-    @Test
-   public void GoogleSearchTest1(){
-        WebDriverManager.chromedriver().setup();
+    @Test(priority = 1)
+   public void googleSearchTest1() {
         ChromeOptions co = new ChromeOptions();
         co.addArguments("--remote-allow-origins=*");
         WebDriver driver = new ChromeDriver(co);
+        WebDriverManager.chromedriver().setup();
+
         driver.get("https://www.google.com/");
         driver.manage().window().maximize();
+        WebElement m = driver.findElement(By.name("q"));
+        m.sendKeys("CNBC Office Address");
+        m.sendKeys(Keys.ENTER);
+        driver.navigate().back();
+        driver.quit();
+    }
+    @Test(priority = 2)
+    public void googleSearchTest2() {
+        ChromeOptions co = new ChromeOptions();
+        co.addArguments("--remote-allow-origins=*");
+        WebDriver driver = new ChromeDriver(co);
+        WebDriverManager.chromedriver().setup();
 
-       WebElement m = driver.findElement(By.name("q"));
-       m.sendKeys("CNBC Office Address");
-       m.sendKeys(Keys.ENTER);
-       driver.navigate().back();
+        driver.get("https://www.google.com/");
+        driver.manage().window().maximize();
+        WebElement m = driver.findElement(By.name("q"));
+        m.sendKeys("Apple Headquarter address");
+        m.sendKeys(Keys.ENTER);
+        driver.navigate().back();
+        driver.quit();
+    }
 
-       m.sendKeys("Apple Headquarter address");
-       m.sendKeys(Keys.ENTER);
-       driver.navigate().back();
+    @Test(priority = 3)
+    public void googleSearchTest3(){
+        ChromeOptions co = new ChromeOptions();
+        co.addArguments("--remote-allow-origins=*");
+        WebDriver driver = new ChromeDriver(co);
+        WebDriverManager.chromedriver().setup();
 
-       m.sendKeys("How old is Elon mask");
-       m.sendKeys(Keys.ENTER);
-       driver.navigate().back();
-       driver.quit();
+        driver.get("https://www.google.com/");
+        driver.manage().window().maximize();
+        WebElement m = driver.findElement(By.name("q"));
+        m.sendKeys("How old is Elon mask");
+        m.sendKeys(Keys.ENTER);
+        driver.navigate().back();
+        driver.quit();
     }
 
 }
