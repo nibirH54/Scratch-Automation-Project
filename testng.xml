@@ -1,0 +1,10 @@
+
+<suite name = "Suite1" parallel = "classes">
+    <test thread-count = "5" name = "Test1" parallel = "classes">
+        <classes>
+            <class name = "GoogleSearchTest"/>
+            <class name = "browserStackSignInTest"/>
+            <class name="pageTitleTest"/>
+        </classes>
+    </test>
+</suite>
