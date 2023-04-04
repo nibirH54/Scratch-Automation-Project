@@ -28,5 +28,8 @@ public class browserStackSignInTest {
 
         //Locate the sign me in button and click on it
         driver.findElement(By.xpath("//input[@type='submit'][1]")).click();
+
+        //close the browser
+        driver.quit();
     }
 }
